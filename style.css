@@ -1,0 +1,130 @@
+:root {
+    --primary-color: #1F3A2E; /* The original headtext color */
+    --accent-color: #4a6b56; /* Lighter accent color derived from primary */
+    --primary-light: rgba(255, 255, 255, 0.1);
+    --primary-dark: rgba(0, 0, 0, 0.18);
+    --secondary-accent: rgba(255, 255, 255, 0.2);
+    --text-light: #ffffff;
+    --text-dark: #333333;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "SUSE", sans-serif;
+    background-color: var(--primary-color); /* Background uses the primary color */
+    background-size: cover;
+    color: var(--text-dark);
+}
+
+#headercontainer {
+    position: fixed;
+    display: flex;
+    width: auto;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 10px;
+    background: var(--primary-light); /* Transparent light background */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease-in-out;
+}
+
+ul#floatingheader {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul#floatingheader li {
+    margin: 0 0px;
+    padding: 10px;
+    border-radius: 30px;
+    text-align: center;
+    transition: width 0.4s ease, background-color 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 30px;
+    color: var(--text-dark) !important;
+}
+
+ul#floatingheader li i {
+    font-size: 1em;
+    transition: all 0.3s ease-in-out;
+}
+
+ul#floatingheader li span {
+    display: none;
+    font-size: 1em;
+    position: absolute;
+    white-space: nowrap;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+ul#floatingheader li:hover {
+    background-color: var(--secondary-accent); /* Slightly lighter hover effect */
+    width: 120px;
+}
+
+ul#floatingheader li:hover i {
+    opacity: 0;
+}
+
+ul#floatingheader li:hover span {
+    display: inline-block;
+    opacity: 1;
+}
+
+.container {
+    min-height: calc(100vh - 80px);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#headtext {
+    font-size: 5em;
+    font-weight: 600;
+    color: var(--accent-color); /* Lighter accent color for headtext */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#headtext:hover {
+    transform: scale(1.05);
+    color: var(--text-light); /* Change to lighter text color on hover */
+}
+
+@media (max-width: 600px) {
+    ul#floatingheader li {
+        width: 40px;
+        height: 30px;
+    }
+
+    ul#floatingheader li:hover {
+        width: 80px;
+    }
+
+    #headercontainer {
+        width: 90%;
+        height: 50px;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
