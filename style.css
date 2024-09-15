@@ -109,6 +109,98 @@ ul#floatingheader li:hover span {
     color: var(--text-light); /* Change to lighter text color on hover */
 }
 
+#audiocontainer {
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    padding: 20px;
+    background-color: #f0f0f0; /* Optional background */
+    border-radius: 60px;
+    width: max-content; /* Adjust the size of the container */
+    transition: all 0.2s ease-in-out;
+    /* gap: 20px; */
+}
+
+.roundplayer{
+    border-radius: 50% !important;
+}
+
+#audioimage {
+    width: 100px;
+    aspect-ratio: 1;
+    background-color: red;
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%; /* Makes the image circular */
+    /* margin-right: 20px; */
+    transition: all 0.5s linear;
+}
+
+.rotating {
+    transition: all 0.5s linear;
+    animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transition: all 0.5s linear; /* For smooth rotation */
+        transform: rotate(0deg);
+    }
+    to {
+        transition: all 0.5s linear; /* For smooth rotation */
+        transform: rotate(360deg);
+    }
+}
+
+#audiodetails {
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-left: 20px;
+}
+
+.collapsed{
+    font-size: 0em !important;
+    transition: all 0.2s ease-in-out !important;
+    width: 0px !important;
+    margin: 0 !important;
+}
+
+#tracktitle {
+    /* transition: all 0.5s linear; */
+    font-size: 1.2em;
+    font-weight: bold; /* Heavier weight for the track title */
+    color: #333;
+}
+
+#singername {
+    /* transition: all 0.5s linear; */
+    font-size: 1em;
+    font-weight: 300; /* Lighter weight for the singer name */
+    color: #666;
+    margin-top: 5px;
+}
+
+#trackseekbar {
+    height: 5px;
+    background-color: #ccc; /* Background of the full seekbar */
+    position: relative;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#trackplayed {
+    height: 5px;
+    background-color: #4a6b56; /* Color of the progress bar */
+    width: 0%; /* Width will be dynamically set */
+    border-radius: 5px;
+}
+
+
 @media (max-width: 600px) {
     ul#floatingheader li {
         width: 40px;
